@@ -1,0 +1,173 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Open Sans', sans-serif;
+    background-image: url('img/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: -1;
+}
+
+h4, strong {
+    color: rgb(211, 118, 240);
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    min-height: 100vh;
+    padding: 20px;
+    gap: 20px;
+}
+
+main > section.items h4 {
+    text-align: center;
+    margin-top: 0;
+    width: 100%;
+}
+
+main > section.items {
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 500px;
+    min-width: 300px;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+section.items .product {
+    border: 1px solid lightgrey;
+    margin: 6px;
+    flex: 0 0 calc(33.333% - 24px);
+    cursor: pointer;
+    text-align: center;
+    border-radius: 8px;
+    transition: transform 0.2s ease;
+}
+
+section.items .product:hover {
+    transform: scale(1.02);
+}
+
+section.items .product.selected {
+    border: 2px solid rgb(211, 118, 240);
+}
+
+section.items .photo img {
+    max-width: 90px;
+}
+
+section.items .description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-size: 11px;
+    line-height: 15px;
+}
+
+section.items .description .price {
+    font-weight: bold;
+    margin: 4px auto;
+    color: rgb(211, 118, 240);
+}
+
+section.items .description .quantity-area {
+    margin: 8px auto;
+    height: 14px;
+}
+
+section.items .description .quantity-area button {
+    width: 16px;
+    height: 16px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color: rgb(211, 118, 240);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 12px;
+    transition: background-color 0.2s ease;
+}
+
+section.items .description .quantity-area button:hover {
+    background-color: rgb(180, 100, 220);
+}
+
+section.items .description .quantity-area .quantity {
+    font-weight: bold;
+    margin: 0 4px;
+}
+
+section.summary {
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    min-height: 200px;
+    min-width: 250px;
+    text-align: center;
+}
+
+section.summary table {
+    width: 100%;
+    margin-top: 12px;
+    font-size: 12px;
+    border-collapse: collapse;
+}
+
+section.summary table thead th {
+    text-align: left;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #ccc;
+}
+
+section.summary table td,
+section.summary table th {
+    padding: 6px 0;
+}
+
+section.summary table tbody tr:last-of-type th {
+    border-top: 1px solid black;
+    padding-top: 4px;
+}
+
+.finish-button {
+    margin-top: 20px;
+    background-color: rgb(211, 118, 240);
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.finish-button:hover {
+    background-color: rgb(180, 100, 220);
+    transform: scale(1.03);
+}
+
