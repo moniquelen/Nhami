@@ -2,63 +2,63 @@ var products = [
         {
             "photo": "img/tacos.png",
             "name": "Tacos",
-            "price": 5.99,
+            "price": 16.99,
             "active": false,
             "quantity": 1
         },
         {
             "photo": "img/hotdog.png",
             "name": "Cachorro Quente",
-            "price": 4.99,
+            "price": 15.99,
             "active": false,
             "quantity": 1
         },
         {
             "photo": "img/sandwich.png",
             "name": "Sanduíche",
-            "price": 2.99,
+            "price": 9.99,
             "active": false,
             "quantity": 1
         },
         {
             "photo": "img/chocolate-cake.png",
             "name": "Bolo de Chocolate",
-            "price": 2.99,
+            "price": 7.99,
             "active": false,
             "quantity": 1
         },
         {
             "photo": "img/strawberry-cake.png",
             "name": "Bolo de Morango",
-            "price": 3.49,
+            "price": 7.99,
             "active": false,
             "quantity": 1
         },
         {
             "photo": "img/chocolate-pie.png",
             "name": "Torta de Chocolate",
-            "price": 2.79,
+            "price": 9.99,
             "active": false,
             "quantity": 1
         },
         {
             "photo": "img/bubble-tea.png",
             "name": "Bubble Tea",
-            "price": 1.99,
+            "price": 12.99,
             "active": false,
             "quantity": 1
         },
         {
             "photo": "img/soda.png",
             "name": "Refrigerante",
-            "price": 1.99,
+            "price": 7.99,
             "active": false,
             "quantity": 1
         },
         {
             "photo": "img/coffee.png",
             "name": "Café",
-            "price": 1.49,
+            "price": 14.99,
             "active": false,
             "quantity": 1
         }
