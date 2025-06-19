@@ -68,7 +68,8 @@ const SelfServiceMachine = {
     data() {
         return {
             products: window.products,
-            orderTotal: 0
+            orderTotal: 0,
+            showPopup: false
         }
     },
     methods: {
@@ -85,7 +86,20 @@ const SelfServiceMachine = {
            return total.toFixed(2);
         },
         finishOrder() {
-            alert("Pedido finalizado com sucesso!");
+            const selectedProducts = this.products.filter(p => p.active);
+            const order = {
+                items: selectedProducts.map(p => ({
+                    name: p.name,
+                    quantity: p.quantity,
+                    total: (p.quantity * p.price).toFixed(2)
+                })),
+                total: this.total()
+            };
+            
+            localStorage.setItem('lastOrder', JSON.stringify(order));
+            
+            this.showPopup = true;
+
             this.products.forEach(product => {
                 product.active = false;
                 product.quantity = 1;

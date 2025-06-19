@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="style.css">
-        <title>Self Service Order</title>
+        <title>Nhami! - Self Service Order</title>
         <link rel="icon" href="img/favicon.png" type="image/png">
     </head>
 
@@ -29,7 +29,7 @@
                     </div>
                     <div class="description">
                         <span class="name">{{product.name}}</span>
-                        <span class="price">$ {{product.price}}</span>
+                        <span class="price">R$ {{product.price}}</span>
                         <div class="quantity-area">
                             <template v-if="product.active">
                                 <button :disabled="product.quantity<=1" @click.stop="product.quantity--">-</button> 
@@ -67,6 +67,15 @@
                 </table>
                 <button class="finish-button" @click="finishOrder">Finalizar Pedido</button>
             </section>
+
+            <div v-if="showPopup" class="popup">
+                <div class="popup-content">
+                    <h3>Pedido Finalizado!</h3>
+                    <p>Seu pedido foi salvo com sucesso.</p>
+                    <button @click="showPopup = false">Fechar</button>
+                </div>
+            </div>
+
 
         </main>
 
