@@ -9,28 +9,31 @@
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="style.css">
         <title>Nhami!® - Self Service Order</title>
-        <link rel="icon" href="img/favicon.png" type="image/png">
+        <link rel="icon" href="media/img/favicon.png" type="image/png">
+        <link href="https://cdn.jsdelivr.net/npm/@mdi/font@7.2.96/css/materialdesignicons.min.css" rel="stylesheet">
     </head>
 
     <body>
         
         <main id="app">
-            
-            <header class="title-header">
-                <h1>Nhami!</h1>
-            </header>
 
             <section class="items">
-                <h4>Selecione os produtos</h4>
+                <h1>
+                    <img src="media/img/favicon.png" alt="logo" class="logo-title">
+                    <span class="title-text">
+                        Nhami!<sup class="registered">®</sup>
+                    </span>
+                </h1>
+                <h4>Selecione seu pedido no menu abaixo:</h4>
                 <div v-for="product in products" 
                     class="product"
                     @click="toggleActive(product)"
-                    :class="{selected: product.active}"
-                    >
+                    :class="{selected: product.active}">
                     
                     <div class="photo">
                         <img :src="product.photo">
                     </div>
+
                     <div class="description">
                         <span class="name">{{product.name}}</span>
                         <span class="price">R$ {{product.price}}</span>
@@ -46,37 +49,42 @@
 
             </section>
 
-            <section class="summary" v-if="total()>0">
-                <strong>Resumo do pedido</strong>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Item</th>
-                            <th>Total</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr v-for="product in products">
-                            <template v-if="product.active">
-                                <td>{{product.quantity + 'x ' + product.name}}</td>
-                                <td>{{(product.quantity * product.price).toFixed(2)}}</td>
-                            </template>
-                        </tr>
-                        
-                        <tr>
-                            <th>Total</th>
-                            <th>{{total()}}</th>
-                        </tr>
-                    </tbody>
-                </table>
-                <button class="finish-button" @click="finishOrder">Finalizar Pedido</button>
-            </section>
+            <transition name="fade-slide">
+                <section class="summary" v-if="showSummary">
+                    <strong>Resumo do pedido</strong>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="product in products">
+                                <template v-if="product.active">
+                                    <td>{{product.quantity + 'x ' + product.name}}</td>
+                                    <td>{{(product.quantity * product.price).toFixed(2)}}</td>
+                                </template>
+                            </tr>
+                            
+                            <tr>
+                                <th>Total</th>
+                                <th>{{total()}}</th>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button class="finish-button" @click="finishOrder">Finalizar Pedido</button>
+                </section>
+            </transition>
 
-            <div v-if="showPopup" class="popup">
+            <div class="popup" v-if="showPopup">
                 <div class="popup-content">
-                    <h3>Pedido Finalizado!</h3>
-                    <p>Seu pedido foi salvo com sucesso.</p>
-                    <button @click="showPopup = false">Fechar</button>
+                    <img src="media/img/shopping-cart.png" alt="Shopping Cart" class="popup-icon">
+                    <h3>Pedido Finalizado</h3>
+                    <p>Seu pedido foi realizado com sucesso!</p>
+                    <button @click="closePopup()" class="close-button">
+                        <i class="mdi mdi-close"></i> Fechar
+                    </button>
                 </div>
             </div>
 

@@ -3,16 +3,14 @@ html, body {
     margin: 0;
     padding: 0;
 }
-
 body {
     margin: 0;
     min-height: 100vh;
     font-family: 'Open Sans', sans-serif;
-    background-image: url('img/background.jpg');
+    background: url("media/gif/background.gif") no-repeat center center fixed;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
 }
 
 body::before {
@@ -23,8 +21,50 @@ body::before {
     z-index: -1;
 }
 
+h1 {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 22px;
+    color: rgb(103, 100, 104);
+    gap: 8px;
+}
+
+.title-text {
+    display: flex;
+    align-items: flex-start; 
+    gap: 2px; 
+}
+
+.registered {
+    font-size: 0.5em;
+    color: rgb(103, 100, 104);
+}
+
+.logo-title {
+    width: 62px;
+    height: 62px;
+    margin-bottom: 4px;
+}
+
 h4, strong {
     color: rgb(211, 118, 240);
+}
+
+.fade-slide-enter-active, .fade-slide-leave-active {
+  transition: all 0.3s ease;
+}
+
+.fade-slide-enter-from, .fade-slide-leave-to {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.fade-slide-enter-to, .fade-slide-leave-from {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 main {
@@ -35,15 +75,6 @@ main {
     min-height: 100vh;
     padding: 20px;
     gap: 20px;
-}
-
-.title-header {
-    color: rgb(211, 118, 240);
-    font-size: 20px;
-    font-weight: 700;
-    font-family: 'Open Sans', sans-serif;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-    letter-spacing: 1px;
 }
 
 main > section.items h4 {
@@ -148,18 +179,19 @@ section.summary table {
 }
 
 section.summary table thead th {
-    text-align: left;
+    text-align: center;
     padding-bottom: 6px;
     border-bottom: 1px solid #ccc;
 }
 
 section.summary table td,
 section.summary table th {
-    padding: 6px 0;
+    padding: 6px 8px;
+    text-align: center;
 }
 
 section.summary table tbody tr:last-of-type th {
-    border-top: 1px solid black;
+    border-top: 1px solid rgb(211, 118, 240);
     padding-top: 4px;
 }
 
@@ -192,16 +224,28 @@ section.summary table tbody tr:last-of-type th {
 
 .popup-content {
     background: white;
-    padding: 30px;
+    padding: 40px;
     border-radius: 12px;
     text-align: center;
     max-width: 300px;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    display: flex;  
+    flex-direction: column; 
+    align-items: center;
+}
+
+.popup-content h3,
+.popup-content p {
+    margin: 12px;
 }
 
 .popup-content h3 {
-    margin-top: 0;
     color: rgb(211, 118, 240);
+}
+
+.popup-icon {
+    width: 40px; 
+    height: 40px;
 }
 
 .popup-content button {
@@ -218,4 +262,9 @@ section.summary table tbody tr:last-of-type th {
 .popup-content button:hover {
     background-color: rgb(180, 100, 220);
 }
+
+.close-button i {
+    font-size: 16px;
+}
+
 
